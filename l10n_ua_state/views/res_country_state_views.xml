@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_country_state_search" model="ir.ui.view">
+        <field name="name">res.country.state.search.inherit.l10n_ua_state</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="before">
+                <separator/>
+                <filter name="filter_ua_states" string="UA Regions" domain="[('country_id.code', '=', 'UA')]"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

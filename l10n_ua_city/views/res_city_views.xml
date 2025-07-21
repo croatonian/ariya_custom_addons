@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_city_tree" model="ir.ui.view">
+        <field name="name">res.city.tree.inherit.l10n_ua_city</field>
+        <field name="model">res.city</field>
+        <field name="inherit_id" ref="base_address_extended.view_city_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="ua_code" string="Code" optional="hide"/>
+                <field name="ua_type" string="Type" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_city_filter" model="ir.ui.view">
+        <field name="name">res.city.search.inherit.l10n_ua_city</field>
+        <field name="model">res.city</field>
+        <field name="inherit_id" ref="base_address_extended.view_city_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="filter_domain">['|', '|', ('name','ilike',self), ('zipcode','ilike',self), ('ua_code','ilike',self)]</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ua_city_list_server_action" model="ir.actions.server">
+        <field name="name">Cities</field>
+        <field name="model_id" ref="model_res_city"/>
+        <field name="state">code</field>
+        <field name="code">action = {
+            'name': 'Cities',
+            'type': 'ir.actions.act_window',
+            'res_model': 'res.city',
+            'view_mode': 'list,form',
+            'domain': [('country_id', '=', env.ref('base.ua').id)],
+         }
+        </field>
+    </record>
+
+    <menuitem id="menu_ua_city" name="Cities" parent="menu_ua_config" action="ua_city_list_server_action" sequence="15"/>
+
+</odoo>

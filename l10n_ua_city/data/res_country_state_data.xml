@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Update UA state codes -->
+    <record id="l10n_ua_state.region_01" model="res.country.state">
+        <field name="code">UA01000000000013043</field>
+    </record>
+    <record id="l10n_ua_state.region_05" model="res.country.state">
+        <field name="code">UA05000000000010236</field>
+    </record>
+    <record id="l10n_ua_state.region_07" model="res.country.state">
+        <field name="code">UA07000000000024379</field>
+    </record>
+    <record id="l10n_ua_state.region_12" model="res.country.state">
+        <field name="code">UA12000000000090473</field>
+    </record>
+    <record id="l10n_ua_state.region_14" model="res.country.state">
+        <field name="code">UA14000000000091971</field>
+    </record>
+    <record id="l10n_ua_state.region_18" model="res.country.state">
+        <field name="code">UA18000000000041385</field>
+    </record>
+    <record id="l10n_ua_state.region_21" model="res.country.state">
+        <field name="code">UA21000000000011690</field>
+    </record>
+    <record id="l10n_ua_state.region_23" model="res.country.state">
+        <field name="code">UA23000000000064947</field>
+    </record>
+    <record id="l10n_ua_state.region_26" model="res.country.state">
+        <field name="code">UA26000000000069363</field>
+    </record>
+    <record id="l10n_ua_state.region_32" model="res.country.state">
+        <field name="code">UA32000000000030281</field>
+    </record>
+    <record id="l10n_ua_state.region_35" model="res.country.state">
+        <field name="code">UA35000000000016081</field>
+    </record>
+    <record id="l10n_ua_state.region_44" model="res.country.state">
+        <field name="code">UA44000000000018893</field>
+    </record>
+    <record id="l10n_ua_state.region_46" model="res.country.state">
+        <field name="code">UA46000000000026241</field>
+    </record>
+    <record id="l10n_ua_state.region_48" model="res.country.state">
+        <field name="code">UA48000000000039575</field>
+    </record>
+    <record id="l10n_ua_state.region_51" model="res.country.state">
+        <field name="code">UA51000000000030770</field>
+    </record>
+    <record id="l10n_ua_state.region_53" model="res.country.state">
+        <field name="code">UA53000000000028050</field>
+    </record>
+    <record id="l10n_ua_state.region_56" model="res.country.state">
+        <field name="code">UA56000000000066151</field>
+    </record>
+    <record id="l10n_ua_state.region_59" model="res.country.state">
+        <field name="code">UA59000000000057109</field>
+    </record>
+    <record id="l10n_ua_state.region_61" model="res.country.state">
+        <field name="code">UA61000000000060328</field>
+    </record>
+    <record id="l10n_ua_state.region_63" model="res.country.state">
+        <field name="code">UA63000000000041885</field>
+    </record>
+    <record id="l10n_ua_state.region_65" model="res.country.state">
+        <field name="code">UA65000000000030969</field>
+    </record>
+    <record id="l10n_ua_state.region_68" model="res.country.state">
+        <field name="code">UA68000000000099709</field>
+    </record>
+    <record id="l10n_ua_state.region_71" model="res.country.state">
+        <field name="code">UA71000000000010357</field>
+    </record>
+    <record id="l10n_ua_state.region_73" model="res.country.state">
+        <field name="code">UA73000000000044923</field>
+    </record>
+    <record id="l10n_ua_state.region_74" model="res.country.state">
+        <field name="code">UA74000000000025378</field>
+    </record>
+</odoo>

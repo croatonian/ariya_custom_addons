@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_ua_city_import" model="ir.actions.act_window">
+        <field name="name">Import Ukrainian territorial objects</field>
+        <field name="res_model">base_import.helper</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{
+            'default_mode': 'ukraine_katotth',
+            'default_url': 'https://mtu.gov.ua/files/%D0%9A%D0%BE%D0%B4%D0%B8%D1%84%D1%96%D0%BA%D0%B0%D1%82%D0%BE%D1%80_14_01_2025__.xlsx',
+            'default_help_url': 'https://mtu.gov.ua/content/kodifikator-administrativnoteritorialnih-odinic-ta-teritoriy-teritorialnih-gromad.html',
+            'default_do_rewrite': False,
+        }</field>
+    </record>
+
+    <record id="menu_ua_city_import" model="ir.ui.menu">
+        <field name="name">Import wizard</field>
+        <field name="parent_id" ref="menu_ua_config"/>
+        <field name="action" ref="action_ua_city_import"/>
+        <field name="sequence">50</field>
+    </record>
+
+</odoo>

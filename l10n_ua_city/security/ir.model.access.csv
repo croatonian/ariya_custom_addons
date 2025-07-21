@@ -1,0 +1,10 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_res_region_public_read,access_res_region_public_read,model_res_ua_region,base.group_public,1,0,0,0
+access_res_region_portal_read,access_res_region_portal_read,model_res_ua_region,base.group_portal,1,0,0,0
+access_res_region_user_read,access_res_region_user_read,model_res_ua_region,base.group_user,1,0,0,0
+access_res_ua_hromada_public_read,access_res_ua_hromada_public_read,model_res_ua_hromada,base.group_public,1,0,0,0
+access_res_ua_hromada_portal_read,access_res_ua_hromada_portal_read,model_res_ua_hromada,base.group_portal,1,0,0,0
+access_res_ua_hromada_user_read,access_res_ua_hromada_user_read,model_res_ua_hromada,base.group_user,1,0,0,0
+access_res_ua_district_public_read,access_res_ua_district_public_read,model_res_ua_district,base.group_public,1,0,0,0
+access_res_ua_district_portal_read,access_res_ua_district_portal_read,model_res_ua_district,base.group_portal,1,0,0,0
+access_res_ua_district_user_read,access_res_ua_district_user_read,model_res_ua_district,base.group_user,1,0,0,0

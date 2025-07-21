@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="address_street_extended_city_form" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.l10n_ua_city</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base_address_extended.address_street_extended_city_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='city_id']" position="before">
+                <field name="ua_city_type" class="o_address_city text-muted" invisible="not country_enforce_cities or not country_is_ua"/>
+            </xpath>
+            <xpath expr="//field[@name='city_id']" position="after">
+                <div class="row" invisible="not country_enforce_cities or not country_is_ua">
+                    <div class="col-4">
+                        <span class="text-muted">City Region</span>
+                    </div>
+                    <div class="col-8">
+                        <field name="ua_district_id" class="o_address_city w-100"/>
+                    </div>
+                    <div class="col-4">
+                        <span class="text-muted">Hromada</span>
+                    </div>
+                    <div class="col-8">
+                        <field name="ua_hromada_id" class="o_address_city w-100"/>
+                    </div>
+                    <div class="col-4">
+                        <span class="text-muted">State Region</span>
+                    </div>
+                    <div class="col-8">
+                        <field name="ua_region_id" class="o_address_city w-100"/>
+                    </div>
+                </div>
+            </xpath>
+<!--            <xpath expr="//div[@name='partner_address_country']" position="before">-->
+<!--&lt;!&ndash;                <field name="state_id" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <field name="city_id" invisible="1"/>&ndash;&gt;-->
+<!--                <div class="row" invisible="not country_is_ua or not country_id.enforce_cities">-->
+<!--                    <div class="col-6">-->
+<!--                        <field name="ua_region_id" placeholder="Region"/>-->
+<!--                    </div>-->
+<!--                    <div class="col-6">-->
+<!--                        <field name="ua_hromada_id" placeholder="Hromada"/>-->
+<!--                    </div>-->
+<!--&lt;!&ndash;                    <div class="col-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <field name="ua_city_type" placeholder="City type" class="ps-1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                    <div class="col-6">-->
+<!--                        <field name="ua_district_id" placeholder="District"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </xpath>-->
+        </field>
+    </record>
+
+</odoo>

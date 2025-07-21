@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_ua_region_view_tree" model="ir.ui.view">
+        <field name="name">res.ua.region.tree</field>
+        <field name="model">res.ua.region</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code" optional="show"/>
+                <field name="state_id" optional="hide"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="res_ua_hromada_view_tree" model="ir.ui.view">
+        <field name="name">res.ua.hromada.tree</field>
+        <field name="model">res.ua.hromada</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code" optional="show"/>
+                <field name="state_id" optional="hide"/>
+                <field name="region_id" optional="hide"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    
+    <record id="res_ua_district_view_tree" model="ir.ui.view">
+        <field name="name">res.ua.district.tree</field>
+        <field name="model">res.ua.district</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code" optional="show"/>
+                <field name="city_id" optional="hide"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_ua_region" model="ir.actions.act_window">
+        <field name="name">Regions</field>
+        <field name="res_model">res.ua.region</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_ua_hromada" model="ir.actions.act_window">
+        <field name="name">List of Hromada</field>
+        <field name="res_model">res.ua.hromada</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_ua_district" model="ir.actions.act_window">
+        <field name="name">City Districts</field>
+        <field name="res_model">res.ua.district</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_ua_config" name="Ukraine" parent="contacts.menu_localisation" sequence="50">
+        <menuitem id="menu_ua_region" name="Regions" action="action_ua_region" sequence="5"/>
+        <menuitem id="menu_ua_hromada" name="Hromadas" action="action_ua_hromada" sequence="10"/>
+        <menuitem id="menu_ua_district" name="Districts" action="action_ua_district" sequence="20"/>
+    </menuitem>
+
+</odoo>

@@ -1,0 +1,258 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_city
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-29 14:12+0000\n"
+"PO-Revision-Date: 2025-04-29 14:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_city
+#: model_terms:ir.ui.view,arch_db:l10n_ua_city.address_street_extended_city_form
+msgid "<span class=\"text-muted\">City Region</span>"
+msgstr "<span class=\"text-muted\">Район міста</span>"
+
+#. module: l10n_ua_city
+#: model_terms:ir.ui.view,arch_db:l10n_ua_city.address_street_extended_city_form
+msgid "<span class=\"text-muted\">Hromada</span>"
+msgstr "<span class=\"text-muted\">Громада</span>"
+
+#. module: l10n_ua_city
+#: model_terms:ir.ui.view,arch_db:l10n_ua_city.address_street_extended_city_form
+msgid "<span class=\"text-muted\">State Region</span>"
+msgstr "<span class=\"text-muted\">Район області</span>"
+
+#. module: l10n_ua_city
+#. odoo-python
+#: code:addons/l10n_ua_city/wizard/base_import_helper.py:0
+#: model:ir.actions.server,name:l10n_ua_city.ua_city_list_server_action
+#: model:ir.ui.menu,name:l10n_ua_city.menu_ua_city
+msgid "Cities"
+msgstr "Міста"
+
+#. module: l10n_ua_city
+#: model:ir.model,name:l10n_ua_city.model_res_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_district__city_id
+#: model:ir.model.fields.selection,name:l10n_ua_city.selection__res_city__ua_type__m
+msgid "City"
+msgstr "Місто"
+
+#. module: l10n_ua_city
+#: model:ir.actions.act_window,name:l10n_ua_city.action_ua_district
+msgid "City Districts"
+msgstr "Райони міст"
+
+#. module: l10n_ua_city
+#: model:ir.model,name:l10n_ua_city.model_res_ua_district
+msgid "City districts of Ukraine"
+msgstr "Міські райони України"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_district__code
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__code
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_region__code
+#: model_terms:ir.ui.view,arch_db:l10n_ua_city.view_city_tree
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_city
+#: model:ir.model,name:l10n_ua_city.model_res_partner
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_partner__country_is_ua
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_users__country_is_ua
+msgid "Country Is Ua"
+msgstr ""
+
+#. module: l10n_ua_city
+#: model:ir.model,name:l10n_ua_city.model_res_ua_region
+msgid "Country State Regions of Ukraine"
+msgstr "Обласні райони України"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_district__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_region__create_uid
+msgid "Created by"
+msgstr "Створений"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_district__create_date
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__create_date
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_region__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_district__display_name
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__display_name
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_region__display_name
+msgid "Display Name"
+msgstr "Відображувана Назва"
+
+#. module: l10n_ua_city
+#: model:ir.ui.menu,name:l10n_ua_city.menu_ua_district
+msgid "Districts"
+msgstr "Райони міст"
+
+#. module: l10n_ua_city
+#. odoo-python
+#: code:addons/l10n_ua_city/wizard/base_import_helper.py:0
+msgid "Error opening URL: %(err)s"
+msgstr "Помилка при відкритті URL: %(err)s"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_city__ua_hromada_id
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_partner__ua_hromada_id
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_users__ua_hromada_id
+msgid "Hromada"
+msgstr "Громада"
+
+#. module: l10n_ua_city
+#: model:ir.ui.menu,name:l10n_ua_city.menu_ua_hromada
+msgid "Hromadas"
+msgstr "Громади"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_district__id
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__id
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_region__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_ua_city
+#: model:ir.model,name:l10n_ua_city.model_base_import_helper
+msgid "Import Helper"
+msgstr "Майстер імпорту даних"
+
+#. module: l10n_ua_city
+#: model:ir.actions.act_window,name:l10n_ua_city.action_ua_city_import
+msgid "Import Ukrainian territorial objects"
+msgstr "Імпорт адміністративно-територіальних одиниць України"
+
+#. module: l10n_ua_city
+#: model:ir.ui.menu,name:l10n_ua_city.menu_ua_city_import
+msgid "Import wizard"
+msgstr "Імпортувати з довідника"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_district__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_region__write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновлений"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_district__write_date
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__write_date
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_region__write_date
+msgid "Last Updated on"
+msgstr "Востаннє оновлено"
+
+#. module: l10n_ua_city
+#: model:ir.actions.act_window,name:l10n_ua_city.action_ua_hromada
+msgid "List of Hromada"
+msgstr "Список Громад"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_base_import_helper__mode
+msgid "Mode"
+msgstr "Режим"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_district__name
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__name
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_region__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__region_id
+msgid "Region"
+msgstr "Обласний район"
+
+#. module: l10n_ua_city
+#: model:ir.actions.act_window,name:l10n_ua_city.action_ua_region
+#: model:ir.ui.menu,name:l10n_ua_city.menu_ua_region
+msgid "Regions"
+msgstr "Обласні райони"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields.selection,name:l10n_ua_city.selection__res_city__ua_type__x
+msgid "Settlement"
+msgstr "Селище"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_hromada__state_id
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_ua_region__state_id
+msgid "State"
+msgstr "Область"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,help:l10n_ua_city.field_res_partner__country_is_ua
+#: model:ir.model.fields,help:l10n_ua_city.field_res_users__country_is_ua
+msgid "Technical field for domain."
+msgstr "Технічне поле для домену."
+
+#. module: l10n_ua_city
+#: model:ir.model,name:l10n_ua_city.model_res_ua_hromada
+msgid "Territorial hromadas of Ukraine"
+msgstr "Територіальні громади України"
+
+#. module: l10n_ua_city
+#. odoo-python
+#: code:addons/l10n_ua_city/wizard/base_import_helper.py:0
+msgid "The codifier URL is incorrect. Please specify a proper URL."
+msgstr ""
+"URL-адреса кодифікатора неправильна. Будь ласка, вкажіть правильну URL-"
+"адресу."
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_city__ua_type
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_partner__ua_city_type
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_users__ua_city_type
+#: model_terms:ir.ui.view,arch_db:l10n_ua_city.view_city_tree
+msgid "Type"
+msgstr "Тип"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_city__ua_code
+msgid "UA Code"
+msgstr "Код КАТОТТГ"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_partner__ua_district_id
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_users__ua_district_id
+msgid "Ua District"
+msgstr "UA Район"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_partner__ua_region_id
+#: model:ir.model.fields,field_description:l10n_ua_city.field_res_users__ua_region_id
+msgid "Ua Region"
+msgstr "UA Регіон"
+
+#. module: l10n_ua_city
+#: model:ir.ui.menu,name:l10n_ua_city.menu_ua_config
+msgid "Ukraine"
+msgstr "Україна"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields.selection,name:l10n_ua_city.selection__base_import_helper__mode__ukraine_katotth
+msgid "Ukraine Cities"
+msgstr "Міста України"
+
+#. module: l10n_ua_city
+#: model:ir.model.fields.selection,name:l10n_ua_city.selection__res_city__ua_type__c
+msgid "Village"
+msgstr "Село"
