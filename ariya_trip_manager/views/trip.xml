@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="ariya_trip_manager.view_trip_list">
+            <field name="name">Trips</field>
+            <field name="model">ariya_trip_manager.trip</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="employees_ids"/>
+                    <field name="destination_ids"/>
+                    <field name="comment"/>
+                    <field name="reason_for_trip_id"/>
+                    <field name="date_from" string="Початок"/>
+                    <field name="date_to" string="Кінець"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ariya_trip_manager.view_trip_form">
+            <field name="name">Trip</field>
+            <field name="model">ariya_trip_manager.trip</field>
+            <field name="arch" type="xml">
+                <form >
+                    <sheet>
+                        <group>
+                            <group class = "oe_title">
+                                <field name="employees_ids" widget="many2many_tags"/>
+                                <field name="destination_ids" widget="many2many_tags" domain="[('country_id','=','Україна')]"/>
+                                <field name="comment" placeholder ="Залиште коментар, якщо потрібно." />
+                                <label for="date_from" string="Дати"/>
+                                <div class="o_row">
+                                    <field
+                                        name="date_from"
+                                        widget="daterange"
+                                        options="{'end_date_field': 'date_to'}"/>
+                                    <field name="date_to" invisible="1" />
+                                </div>
+                                <field name="reason_for_trip_id" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

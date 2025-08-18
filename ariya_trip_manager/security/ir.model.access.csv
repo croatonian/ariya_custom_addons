@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_ariya_trip_manager_trip_admin,ariya_trip_manager.trip,model_ariya_trip_manager_trip,base.group_system,1,1,1,1
+access_ariya_trip_manager_trip_phase_admin,ariya_trip_manager.trip_phase,model_ariya_trip_manager_reason_for_trip,base.group_system,1,1,1,1
+
+access_ariya_trip_manager_trip_user,ariya_trip_manager.trip,model_ariya_trip_manager_trip,base.group_user,1,1,0,0
+access_ariya_trip_manager_trip_phase_user,ariya_trip_manager.trip_phase,model_ariya_trip_manager_reason_for_trip,base.group_user,1,1,0,0
