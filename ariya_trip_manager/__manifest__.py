@@ -17,7 +17,7 @@
     'category': 'Human Resources',
     'version': '0.1',
 
-    'depends': ['base', 'hr'],
+    'depends': ['base', 'hr', 'mail', "base_tier_validation"],
 
     # always loaded
     'data': [

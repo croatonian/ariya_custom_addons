@@ -3,8 +3,8 @@
 from odoo import models, fields
 class HrEmployeePrivate(models.Model):
     _inherit = 'hr.employee'
-    buh_id = fields.Integer(string="Табельний номер 1С: ", required=True)
-    ref_key = fields.Char(string='Ref Key')
+    buh_id = fields.Integer(string="Табельний номер 1С: ", required=True, groups="hr.group_hr_user")
+    ref_key = fields.Char(string='Ref Key', groups="hr.group_hr_user")
 
 
     _sql_constraints = [

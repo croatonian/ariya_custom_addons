@@ -5,13 +5,30 @@
             <field name="name">Trips</field>
             <field name="model">ariya_trip_manager.trip</field>
             <field name="arch" type="xml">
-                <list>
-                    <field name="employees_ids"/>
-                    <field name="destination_ids"/>
+                <list default_order="create_date desc">
+                    <field name="name"/>
+                    <field name="employees_ids" widget="many2many_tags"/>
+                    <field name="destination_names"/>
                     <field name="comment"/>
-                    <field name="reason_for_trip_id"/>
+                    <field name="reason_for_trip_name"/>
                     <field name="date_from" string="Початок"/>
                     <field name="date_to" string="Кінець"/>
+                    <field
+                        name="state"
+                        widget="badge"
+                        decoration-success="state in ('validated', 'done')"
+                        decoration-muted="state == 'draft'"
+                        decoration-warning="state == 'to_validate'"
+                        decoration-danger="state == 'rejected'"
+                    />
+                    <field
+                        name="validation_status"
+                        widget="badge"
+                        decoration-info="validation_status == 'pending'"
+                        decoration-danger="validation_status == 'rejected'"
+                        decoration-success="validation_status == 'validated'"
+                    />
+
                 </list>
             </field>
         </record>
@@ -21,10 +38,67 @@
             <field name="model">ariya_trip_manager.trip</field>
             <field name="arch" type="xml">
                 <form >
+                    <header>
+<!--                        <button-->
+<!--                            name="button_draft"-->
+<!--                            string="Reset"-->
+<!--                            invisible="state not in ('to_approve','approved','rejected','in_progress','done')"-->
+<!--                            type="object"-->
+<!--                            groups="purchase_request.group_purchase_request_manager"-->
+<!--                        />-->
+<!--                        <button-->
+<!--                            name="button_to_approve"-->
+<!--                            invisible="1"-->
+<!--                            string="Request approval"-->
+<!--                            type="object"-->
+<!--                            class="oe_highlight"-->
+<!--                        />-->
+<!--                        <button-->
+<!--                            name="button_approved"-->
+<!--                            invisible="state != 'draft' or validation_status in ('pending', 'rejected')"-->
+<!--                            string="Approve"-->
+<!--                            type="object"-->
+<!--                            class="oe_highlight"-->
+<!--                        />-->
+                        <button
+                            invisible="id != False"
+                            class="btn btn-secondary"
+                            name="request_validation"
+                            string="Запросити Підтвердженя"
+                            type="object"
+                        />
+<!--                        <button-->
+<!--                            name="button_in_progress"-->
+<!--                            invisible="state not in ('approved')"-->
+<!--                            string="In Progress"-->
+<!--                            type="object"-->
+<!--                        />-->
+                        <button
+                            name="button_done"
+                            invisible="state not in ('validated')"
+                            string="Done"
+                            type="object"
+                            class="oe_highlight"
+                        />
+<!--                        <button-->
+<!--                            name="button_rejected"-->
+<!--                            invisible="state not in ('to_approve', 'approved','in_progress')"-->
+<!--                            string="Reject"-->
+<!--                            type="object"-->
+<!--                        />-->
+                        <field
+                            name="state"
+                            widget="statusbar"
+                            statusbar_visible="draft,to_validate,validated,done,rejected"
+                            statusbar_colors='{"validated":"blue"}'
+                        />
+
+                        <field name="validation_status" invisible="1" />
+                    </header>
                     <sheet>
                         <group>
                             <group class = "oe_title">
-                                <field name="employees_ids" widget="many2many_tags"/>
+                                <field name="employees_ids" widget="many2many_tags" options="{'no_create': True, 'no_quick_create': True, 'no_open': True, 'no_create_edit': True}"/>
                                 <field name="destination_ids" widget="many2many_tags" domain="[('country_id','=','Україна')]"/>
                                 <field name="comment" placeholder ="Залиште коментар, якщо потрібно." />
                                 <label for="date_from" string="Дати"/>
@@ -39,6 +113,7 @@
                             </group>
                         </group>
                     </sheet>
+                    <chatter open_attachments="True"/>
                 </form>
             </field>
         </record>
