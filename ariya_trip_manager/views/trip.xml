@@ -117,5 +117,18 @@
                 </form>
             </field>
         </record>
+        <record id="ariya_trip_manager_view_search" model="ir.ui.view">
+            <field name="name">Search view</field>
+            <field name="model">ariya_trip_manager.trip</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employees_ids"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="destination_names"/>
+                    <field name="reason_for_trip_name"/>
+                </search>
+            </field>
+        </record>
     </data>
 </odoo>

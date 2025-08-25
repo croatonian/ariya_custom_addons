@@ -2,33 +2,28 @@
 {
     'name': "ariya",
 
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+    'summary': """Adding fields to models""",
 
-    'description': """
-        Long description of module's purpose
-    """,
+    'description': """Adding fields to models""",
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Jman Dig",
+    'website': "https://jman.pp.ua",
+    'license': "LGPL-3",
 
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
-    # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hr', 'hr_holidays'],
+    # 'depends': ['hr', 'hr_holidays'],
+    'depends': ['hr'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/hr_employee_views.xml',
-        'views/hr_leave_views.xml',
-        'views/hr_multi_leave_views.xml',
-        'security/ir.model.access.csv'
+        # 'views/hr_leave_views.xml',
+        # 'views/hr_multi_leave_views.xml',
+        # 'security/ir.model.access.csv'
         #'security/groups.xml'
     ],
 }

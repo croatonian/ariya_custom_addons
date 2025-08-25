@@ -36,14 +36,18 @@ class Trip(models.Model):
                 # no tier logic, allow manual override
                 continue
 
-
     _state_from = ["draft", "to_validate"]
     _state_to = ["validated"]
     _tier_validation_state_field_is_computed = True
     _tier_validation_manual_config = False
     # _tier_validation_field = 'state'
 
-    name = fields.Char(string='Назва', required=True, default='Відрядження')
+    name = fields.Char(
+        string='Назва',
+        required=True,
+        default='Відрядження',
+        copy=False
+    )
 
     date_from = fields.Date(string='Start date', default=fields.Date.today(), required=True)
     date_to = fields.Date(string='End date')
@@ -55,6 +59,27 @@ class Trip(models.Model):
 
     reason_for_trip_name = fields.Char(related='reason_for_trip_id.name', string='Мета відрядження')
     destination_names = fields.Char(compute='_compute_destination_names', string="Куди вiдрядження:")
+
+    @api.model_create_multi
+    def create(self, vals):
+        record = super().create(vals)
+        if record.name and not record.name.endswith(str(record.id)):
+            record.name = f"{record.name} {record.id}"
+        return record
+
+    def write(self, vals):
+        res = super().write(vals)
+        for rec in self:
+            # if rec.state == "validated":
+            #     rec._on_validated()
+            if rec.name and not rec.name.endswith(str(rec.id)):
+                rec.name = f"{rec.name} {rec.id}"
+        return res
+
+    def _on_validated(self):
+        # """Custom logic when trip gets validated"""
+        self.message_post(body="✅ Trip approved and confirmed!")
+        # do whatever extra you need
 
     @api.depends('destination_ids')
     def _compute_destination_names(self):

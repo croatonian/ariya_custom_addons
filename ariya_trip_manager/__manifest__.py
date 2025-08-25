@@ -17,14 +17,15 @@
     'category': 'Human Resources',
     'version': '0.1',
 
-    'depends': ['base', 'hr', 'mail', "base_tier_validation"],
+    'depends': ['base', 'hr', 'ariya', 'mail', "base_tier_validation"],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
         'views/trip.xml',
-        'views/tier_validation_templates_override.xml'
+        'views/tier_validation_templates_override.xml',
+        'views/hr_employee_views.xml'
     ],
     'application' : True,
 

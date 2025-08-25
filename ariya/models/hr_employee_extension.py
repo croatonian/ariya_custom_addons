@@ -6,7 +6,6 @@ class HrEmployeePrivate(models.Model):
     buh_id = fields.Integer(string="Табельний номер 1С: ", required=True, groups="hr.group_hr_user")
     ref_key = fields.Char(string='Ref Key', groups="hr.group_hr_user")
 
-
     _sql_constraints = [
         ('unique_ref_key', 'UNIQUE(ref_key)', 'Ref Key must be unique!')
     ]
