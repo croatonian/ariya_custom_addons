@@ -1,0 +1,11 @@
+<odoo>
+  <data>
+    <template id="TierValidationStatusOverride" inherit_id="base_tier_validation.tier_validation_buttons">
+      <xpath expr="//button[@name='request_validation']" position="attributes">
+        <attribute name="t-attf-invisible">
+          (id != False and not need_validation) or validation_status == 'rejected' or hide_reviews
+        </attribute>
+      </xpath>
+    </template>
+  </data>
+</odoo>

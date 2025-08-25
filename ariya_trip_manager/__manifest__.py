@@ -24,6 +24,7 @@
         'security/ir.model.access.csv',
         'views/menu.xml',
         'views/trip.xml',
+        'views/tier_validation_templates_override.xml'
     ],
     'application' : True,
 

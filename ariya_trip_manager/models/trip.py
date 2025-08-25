@@ -1,36 +1,47 @@
 from odoo import _, api, models, fields
 from odoo.exceptions import UserError
-
-_STATES = [
-    ("draft", "Чорновик"),
-    ("to_validate", "На Схваленні"),
-    ('validated', 'Схвалено'),
-    ("done", "Завершено"),
-    ("rejected", "Відхилено"),
-]
-
+# import logging
+# _logger = logging.getLogger(__name__)
 
 class Trip(models.Model):
     _name = 'ariya_trip_manager.trip'
     _inherit = ['mail.thread', 'tier.validation']  # <-- added
     _description = 'Trip'
 
-    state = fields.Selection(
-        selection=_STATES,
-        string="Статус",
-        index=True,
-        tracking=True,
-        required=True,
-        copy=False,
-        default="draft",
-    )
+    state = fields.Selection([
+        ("draft", "Чорновик"),
+        ("to_validate", "На Схваленні"),
+        ("validated", "Схвалено"),
+        ("done", "Завершено"),
+        ("rejected", "Відхилено"),
+    ], default="draft", string="Статус", tracking=True,
+        compute="_compute_state", store=True, inverse="_inverse_state", copy=False, required=True, index=True)
 
-    _state_from = ["draft"]
+    @api.depends("validation_status")
+    def _compute_state(self):
+        for rec in self:
+            if rec.validation_status == "validated":
+                rec.state = "validated"
+            elif rec.validation_status == "rejected":
+                rec.state = "rejected"
+            elif rec.validation_status in ("waiting", "pending"):
+                rec.state = "to_validate"
+            else:  # "no"
+                if rec.state not in ("done",):  # don’t overwrite finished trips
+                    rec.state = "draft"
+
+    def _inverse_state(self):
+        for rec in self:
+            if rec.state == "done":
+                # no tier logic, allow manual override
+                continue
+
+
+    _state_from = ["draft", "to_validate"]
     _state_to = ["validated"]
-
+    _tier_validation_state_field_is_computed = True
     _tier_validation_manual_config = False
-    _tier_validation_field = 'state'
-
+    # _tier_validation_field = 'state'
 
     name = fields.Char(string='Назва', required=True, default='Відрядження')
 
@@ -49,7 +60,7 @@ class Trip(models.Model):
     def _compute_destination_names(self):
         for record in self:
             if record.destination_ids:
-                # Example: Join names of related records with a comma
+                #Join names of related records with a comma
                 names = [name + " область" for name in record.destination_ids.mapped('name')]
                 record.destination_names = ", ".join(names)
             else:
@@ -76,3 +87,4 @@ class Trip(models.Model):
     def _get_under_validation_exceptions(self):
         res = super()._get_under_validation_exceptions()
         return res
+

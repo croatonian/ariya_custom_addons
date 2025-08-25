@@ -60,13 +60,13 @@
 <!--                            type="object"-->
 <!--                            class="oe_highlight"-->
 <!--                        />-->
-                        <button
-                            invisible="id != False"
-                            class="btn btn-secondary"
-                            name="request_validation"
-                            string="Запросити Підтвердженя"
-                            type="object"
-                        />
+<!--                        <button-->
+<!--                            invisible="id != False"-->
+<!--                            class="btn btn-secondary"-->
+<!--                            name="request_validation"-->
+<!--                            string="Запросити Підтвердженя"-->
+<!--                            type="object"-->
+<!--                        />-->
 <!--                        <button-->
 <!--                            name="button_in_progress"-->
 <!--                            invisible="state not in ('approved')"-->
