@@ -73,6 +73,7 @@
 <!--                            string="In Progress"-->
 <!--                            type="object"-->
 <!--                        />-->
+
                         <button
                             name="button_done"
                             invisible="state not in ('validated')"
@@ -110,6 +111,8 @@
                                     <field name="date_to" invisible="1" />
                                 </div>
                                 <field name="reason_for_trip_id" />
+                                <field name="employees_1c_json" />
+                                <field name="author_1c_id" />
                             </group>
                         </group>
                     </sheet>
