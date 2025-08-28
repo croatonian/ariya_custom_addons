@@ -1,6 +1,6 @@
 from odoo import _, api, models, fields
 from odoo.exceptions import UserError
-from datetime import datetime
+from datetime import date
 import json, requests, logging, base64
 _logger = logging.getLogger(__name__)
 
@@ -73,6 +73,13 @@ class Trip(models.Model):
         copy=False
     )
 
+    @api.constrains('date_from')
+    def _check_date_from(self):
+        today = date.today()
+        for record in self:
+            if record.date_from and record.date_from < today:
+                raise UserError(_("The start date must be later than today."))
+
     # @api.depends("create_uid")
     # def _compute_author_1c_id(self):
     #     for rec in self:
@@ -83,10 +90,21 @@ class Trip(models.Model):
     def _compute_destination_names(self):
         for record in self:
             if record.destination_ids:
-                names = [name + " область" for name in record.destination_ids.mapped('name')]
-                record.destination_names = ", ".join(names)
+                names = []
+                for dest in record.destination_ids:
+                    if dest.name == "АРК":
+                        names.append(dest.name)  # no "область"
+                    else:
+                        names.append(f"{dest.name} область")
+                record.destination_names = ", ".join(names) if names else False
             else:
                 record.destination_names = False
+        # for record in self:
+        #     if record.destination_ids:
+        #         names = [name + " область" for name in record.destination_ids.mapped('name')]
+        #         record.destination_names = ", ".join(names)
+        #     else:
+        #         record.destination_names = False
 
     @api.depends("employees_ids.ref_key")
     def _compute_employees_1c_json(self):
@@ -221,33 +239,51 @@ class Trip(models.Model):
     # -------------------------
     # ORM overrides
     # -------------------------
+    # @api.model_create_multi
+    # def create(self, vals_list):
+    #     for vals in vals_list:
+    #         if not vals.get("author_1c_id"):  # Записуємо guid автора
+    #             user = self.env.user
+    #             if user.employee_id and user.employee_id.ref_key:
+    #                 vals["author_1c_id"] = user.employee_id.ref_key
+    #
+    #         if vals.get("employees_ids"):
+    #             self._check_employees_trip_status(vals["employees_ids"], vals["date_from"])
+    #
+    #     records = super().create(vals_list)
+    #     records._ensure_trip_name()
+    #     return records
+
     @api.model_create_multi
     def create(self, vals_list):
-        for vals in vals_list:
-            if not vals.get("author_1c_id"):  # Записуємо guid автора
-                user = self.env.user
-                if user.employee_id and user.employee_id.ref_key:
-                    vals["author_1c_id"] = user.employee_id.ref_key
+        user = self.env.user
+        employee = user.employee_id
 
+        # 1️⃣ User must have connected employee
+        if not employee:
+            raise UserError(
+                _("Ви не можете створити відрядження, оскільки ваш користувач не має підключеного співробітника."))
+
+        # 2️⃣ Employee must have leave_manager_id
+        if not employee.leave_manager_id:
+            raise UserError(
+                _("Неможливо створити відрядження, оскільки у вашого співробітника не призначений затверджувач відпусток (leave_manager_id)."))
+
+        for vals in vals_list:
+            # Set author_1c_id from employee.ref_key
+            if not vals.get("author_1c_id"):
+                if employee.ref_key:
+                    vals["author_1c_id"] = employee.ref_key
+                else:
+                    raise UserError(_("У вашого співробітника відсутній ref_key для 1С."))
+
+            # Check employees trip status via 1C
             if vals.get("employees_ids"):
-                self._check_employees_trip_status(vals["employees_ids"], vals["date_from"])
+                self._check_employees_trip_status(vals["employees_ids"], vals.get("date_from"))
 
         records = super().create(vals_list)
         records._ensure_trip_name()
         return records
-
-    # def write(self, vals):
-    #     if "employees_ids" in vals:
-    #         self._check_employees_trip_status(vals["employees_ids"])
-    #
-    #     res = super().write(vals)
-    #     self._ensure_trip_name()
-    #     return res
-    #
-    # def _on_validated(self):
-    #     # """Custom logic when trip gets validated"""
-    #     self.message_post(body="✅ Trip approved and confirmed!")
-    #     # do whatever extra you need
 
     def _can_be_deleted(self):
         self.ensure_one()
