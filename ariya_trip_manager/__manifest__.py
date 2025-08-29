@@ -22,6 +22,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'security/trip_groups.xml',
         'views/menu.xml',
         'views/trip.xml',
         'views/tier_validation_templates_override.xml',
